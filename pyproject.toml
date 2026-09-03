@@ -1,0 +1,7 @@
+[project]
+name = "dubai-real-estate-intelligence"
+version = "0.1.0"
+description = "Dubai real estate analytics and machine learning platform using Dubai Land Department data"
+requires-python = ">=3.12,<3.13"
+
+[project.dependencies]
