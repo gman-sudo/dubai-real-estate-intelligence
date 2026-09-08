@@ -1,0 +1,45 @@
+# Run CI whenever code is pushed or a pull request is opened.
+
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+  pull_request:
+    branches:
+      - master
+      - main
+
+
+jobs:
+
+  test:
+
+    # Use a fresh Ubuntu environment.
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Download the repository.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Install Python.
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Install dependencies.
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest httpx
+
+      # Run the test suite.
+      - name: Run tests
+        run: python -m pytest
