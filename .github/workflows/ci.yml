@@ -13,7 +13,6 @@ on:
       - master
       - main
 
-
 jobs:
 
   test:
@@ -38,8 +37,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install -e .
           pip install pytest httpx
 
       # Run the test suite.
       - name: Run tests
         run: python -m pytest
+
+      # Verify that the production Docker image builds successfully.
+      - name: Build Docker image
+        run: docker build -t dubai-real-estate-api:ci .
