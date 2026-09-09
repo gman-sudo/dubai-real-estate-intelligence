@@ -4,4 +4,10 @@ version = "0.1.0"
 description = "Dubai real estate analytics and machine learning platform using Dubai Land Department data"
 requires-python = ">=3.12,<3.13"
 
-[project.dependencies]
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]

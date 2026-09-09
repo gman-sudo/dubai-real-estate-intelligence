@@ -33,3 +33,6 @@ models/*.pkl
 
 # CatBoost training artifacts
 notebooks/catboost_info/
+
+# Python package build artifacts
+*.egg-info/
